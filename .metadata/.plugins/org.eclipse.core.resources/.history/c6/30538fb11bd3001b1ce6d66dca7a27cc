@@ -1,0 +1,4 @@
+스프링.txt
+
+ - 스프링 웹프로젝트 구성
+ 	1) Presentation Layer(tier) : UI 담당영역 / 웹-모바일을 구분하는 계층

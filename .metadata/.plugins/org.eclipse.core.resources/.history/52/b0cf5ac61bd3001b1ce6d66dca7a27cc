@@ -1,0 +1,6 @@
+스프링.txt
+
+ - 스프링 웹프로젝트 구성
+ 	1) Presentation Layer(tier) : UI 담당영역 / 웹-모바일을 구분하는 계층
+ 	
+ 	2) Business Logic Layer : 서비스계층, 고객의 요구사항을 반영하는 계층

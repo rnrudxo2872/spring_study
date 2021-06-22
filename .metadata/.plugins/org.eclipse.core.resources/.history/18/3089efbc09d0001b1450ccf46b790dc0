@@ -1,0 +1,5 @@
+package com.itwillbs.web;
+
+public class MysqlConnectTest {
+	private static final String DRIVER="";
+}

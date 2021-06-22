@@ -1,0 +1,25 @@
+package com.itwillbs.web;
+
+import java.sql.DriverManager;
+
+public class MysqlConnectTest {
+	private static final String DRIVER="com.mysql.jdbc.Driver";
+	//8.0~ "com.mysql.cj.jdbc.Driver"
+	
+	private static final String DBURL = "jdbc:mysql://localhost:3306/springdb?useSSL=false";
+	//8.0~ ""jdbc:mysql://localhost:3306/springdb?useSSL=false&serverTimezone=Asia/Seoul"
+	
+	private static final String DBID="root";
+	private static final String DBPW = "1234";
+
+	// Junit사용 테스트
+	public void testCon() {
+		try {
+			Class.forName(DRIVER);
+
+			DriverManager.getConnection(DBURL, DBID, DBPW);
+		} catch (Exception e) {
+			//TODO: handle exception
+		}
+	}
+}
