@@ -1,0 +1,12 @@
+package com.itwillbs.web;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+//@RunWith(SpringJUnit4ClassRunner.class)
+// => 해당 테스트 코드를 실행할 때 스프링으로 처리되도록 설정
+
+@RunWith(SpringJUnit4ClassRunner.class)
+public class DataSourceTest {
+	
+}

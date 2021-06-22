@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MysqlConnectTest" project="SpringTest" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.itwillbs.web.MysqlConnectTest" time="0.306">
-    <testcase name="testCon" classname="com.itwillbs.web.MysqlConnectTest" time="0.306"/>
-  </testsuite>
-</testrun>

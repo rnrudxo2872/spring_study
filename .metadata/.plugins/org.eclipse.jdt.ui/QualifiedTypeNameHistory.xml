@@ -2,6 +2,21 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
-    <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.itwillbs.web.DataSourceTest"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
+    <fullyQualifiedTypeName name="javax.inject.Inject"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="com.itwillbs.web.SampleController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>
