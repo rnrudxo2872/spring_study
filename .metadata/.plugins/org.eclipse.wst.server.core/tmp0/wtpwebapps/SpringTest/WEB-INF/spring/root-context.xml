@@ -15,8 +15,10 @@
 		
 	<!-- DataSource 객체 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/springdb?useSSL=false"></property>
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/springdb?useSSL=false"></property>
+		<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> -->
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/springdb?useSSL=false"></property> -->
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
 	</bean>
@@ -25,9 +27,26 @@
 	<!-- SqlSessionFactory 객체 -->	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
+		
 		<!-- mybatis 설정정보 -->
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		
+		<!-- mapper 설정정보 -->
+		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"></property>
+		
 	</bean>	
 	<!-- SqlSessionFactory 객체 -->	
+
+	<!-- sqlSessionTemplate 객체 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>	
+	<!-- sqlSessionTemplate 객체 -->
+
+	<!-- com.itwillbs.persistence 연결 -->
+	<context:component-scan base-package="com.itwillbs.persistence" />
+
+	<!-- com.itwillbs.service 연결 -->
+	<context:component-scan base-package="com.itwillbs.service" />
 
 </beans>

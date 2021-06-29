@@ -1,0 +1,5 @@
+package com.itwillbs.domain;
+
+public class MemberVO {
+	//tbl_member 테이블정보를 저장하는 도메인 객체
+}

@@ -46,4 +46,7 @@
 	<!-- com.itwillbs.persistence 연결 -->
 	<context:component-scan base-package="com.itwillbs.persistence" />
 
+	<!-- com.itwillbs.service 연결 -->
+	<context:component-scan base-package="com.itwillbs.service" />
+
 </beans>
