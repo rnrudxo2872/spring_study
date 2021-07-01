@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberDAOTest" project="SpringTest" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.itwillbs.web.MemberDAOTest" time="0.256">
-    <testcase name="testMemberList" classname="com.itwillbs.web.MemberDAOTest" time="0.256"/>
-  </testsuite>
-</testrun>
