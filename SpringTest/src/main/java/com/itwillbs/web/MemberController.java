@@ -1,10 +1,14 @@
 package com.itwillbs.web;
 
+import java.net.Authenticator.RequestorType;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,6 +53,103 @@ public class MemberController {
 		
 		service.insertMember(vo);
 		
-		return "";
+		// 페이지 이동(login페이지로 리다이렉트)
+		return "redirect:./login";
+	}
+	
+	//login(get)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet() throws Exception{
+		logger.info("C : === 로그인 Form ===");
+		logger.info("C : login view 페이지로 이동");
+		return "./member/login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPOST(MemberVO vo, HttpSession session) throws Exception {
+		
+		logger.info("C : loginPOST() 호출");
+		
+		//DB에 회원정보가 잇는지 체크
+		// O => 메인페이지, 로그인 세션 생성
+		// X => 다시 로그인페이지로 이동
+		
+		logger.info("얻은 파라미터 -> " + vo);
+		
+		// 서비스 동작 -> DAO -> (MyBatis)mapper -> DB
+		logger.info("C : 서비스 - loginMember() 호출");
+		MemberVO loginVO = service.loginMember(vo);
+		
+		//비회원/비밀번호 오류
+		//로그인 페이지로 다시 이동
+		if(loginVO == null) {
+			return "redirect:./login";
+		}
+		
+		// 회원 동작 처리
+		// 로그인 세션처리 (jsp 뷰 페이지에서 세션객체 전달받아서 처리)
+		session.setAttribute("id", loginVO.getUserid());
+		
+		// 페이지 이동
+		return "redirect:./main";
+	}
+	
+	@RequestMapping(value="/main", method = RequestMethod.GET)
+	public void mainGET() {
+		logger.info("C : main view 호출");
+	}
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logoutGET(HttpSession session) {
+		session.invalidate();
+		return "redirect:./main";
+	}
+	
+	@RequestMapping(value="/info", method = RequestMethod.GET)
+	public String infoGET(HttpSession session, Model model) throws Exception{
+		
+		logger.info("C : infoGET() 호출");
+		
+		String userid = (String)session.getAttribute("id");
+		if(userid == null) {
+			return "redirect:./login";
+		}
+		
+		//DB 회원정보를 가져오는 동작
+		MemberVO infoVO = service.infoMember(userid);
+		
+		logger.info("=====================>"+infoVO);
+		model.addAttribute("infoVO", infoVO);
+		
+		//DB 회원정보를 view 페이지로 이동
+		return "/member/info";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String updateGET(HttpSession session, Model model) throws Exception{
+		logger.info("update 호출");
+		String userid = (String) session.getAttribute("id");
+		
+		if(userid == null) {
+			return "redirect:./login";
+		}
+		
+		MemberVO infoVO = service.infoMember(userid);
+		model.addAttribute("infoVO", infoVO);
+		
+		return "/member/update";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updatePOST(MemberVO vo) throws Exception{
+		logger.info("C : updatePOST() 호출");
+		
+		// 전달된 수정할 정보저장
+		// DB이동 위한 서비스객체 주입
+		service.updateMember(vo);
+		
+		// 페이지 이동(main.jsp)
+		
+		return "redirect:/member/main";
 	}
 }

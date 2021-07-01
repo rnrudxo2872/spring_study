@@ -1,0 +1,29 @@
+<%@page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+</head>
+<body>
+<div class="basicFrame">
+<div class="header">
+</div>
+
+<div class="form-container">
+        <form action="./loginAction.use" method="post">
+            <input type="email" placeholder="아이디(이메일)을 입력해주세요!" name="userid" required>
+            <input type="password" placeholder="비밀번호를 입력해주세요!" name="userpw" required>
+    <p>
+
+            <input type="submit" value="로그인">
+        </form>
+        <button onclick="location.href='./join'">회원이 아니신가요?</button>
+</div>
+<div>
+</div> 
+</div>
+</body>
+</html>

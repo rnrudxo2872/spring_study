@@ -31,4 +31,36 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("S : 컨트롤러로 이동");
 	}
 
+	@Override
+	public MemberVO loginMember(MemberVO vo) throws Exception {
+		System.out.println("S : loginMember(vo) 호출");
+		System.out.println("S : DAO-LoginMember(id,pw) 호출시도");
+		
+		MemberVO loginVO = mDAO.LoginMember(vo.getUserid(), vo.getUserpw());
+		
+		return loginVO;
+	}
+
+	@Override
+	public MemberVO loginMember(String userID, String userPW) throws Exception {
+		System.out.println("S : loginMember(vo) 호출");
+		return mDAO.LoginMember(userID, userPW);
+	}
+
+	@Override
+	public MemberVO infoMember(String userid) throws Exception {
+		System.out.println("S : infoMember(id) 호출");
+		return mDAO.getMember(userid);
+	}
+
+	@Override
+	public void updateMember(MemberVO vo) throws Exception {
+		System.out.println("S : updateMember(MemberVO vo) 호출");
+		
+		mDAO.updateMember(vo);
+		
+		System.out.println("S : 회원정보 수정 완료!");
+		
+	}
+	
 }

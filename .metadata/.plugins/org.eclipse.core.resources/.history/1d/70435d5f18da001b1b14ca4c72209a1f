@@ -1,0 +1,37 @@
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<%@include file="../partials/head.jsp"%>
+<body>
+<main>
+        <form action="./updateAction.use" method="post" style="display:flex; flex-direction: column;">
+            <div class="form-container__email-container">
+            <input class="email-container__inputEmail" type="email" value="<%=mb.getId() %>" name="id" readonly>
+            <span class="idSearchInfo"></span>
+            </div>
+			
+            <input type="password" placeholder="비밀번호를 입력해주세요!" name="pw" required>
+            <input type="text" value="<%=mb.getName() %>" name="name" required>
+            <div style="display:flex; flex-direction: column;">
+            <div style="display:flex; flex-direction: row;">
+            <input class="addr" type="text" value="<%=mb.getAddr() %>" name="addr" readonly required>
+            <input type="button" value="주소조회" onclick="callAddress()">
+            </div>
+            <input type="text" value="<%=mb.getAddr_detail() %>" name="addr_detail" required>
+            </div>
+    <p>
+		    <input type="radio" id="r1" name="gender" value="man" <%if(mb.getGender().equals("man")){%>checked<%} %> readonly>
+		    <label for="r1"><span></span>남</label>
+		    <input type="radio" id="r2" name="gender" value="wom" <%if(mb.getGender().equals("wom")){%>checked<%} %> readonly>
+		    <label for="r2"><span></span>여</label>
+			
+        	<input type="submit" value="정보수정">
+        	<input type="button" value="회원탈퇴" onclick="delFun(this.form)">
+        </form>
+
+</main>
+</body>
+</html>

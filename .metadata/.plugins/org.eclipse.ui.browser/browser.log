@@ -1,3 +1,9 @@
 
 7월 01, 2021 09:21:36.143 NEW SESSION
 7월 01, 2021 09:21:36.143 [1180:17104:0701/092136.142:ERROR:device_event_log_impl.cc(214)] [09:21:36.143] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 01, 2021 09:51:09.594 [4512:14008:0701/095109.594:ERROR:device_event_log_impl.cc(214)] [09:51:09.594] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 01, 2021 10:55:56.84 [14820:9812:0701/105556.084:ERROR:device_event_log_impl.cc(214)] [10:55:56.085] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 01, 2021 11:01:04.301 [788:6876:0701/110104.301:ERROR:device_event_log_impl.cc(214)] [11:01:04.301] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 01, 2021 11:02:08.674 [4208:6968:0701/110208.674:ERROR:device_event_log_impl.cc(214)] [11:02:08.673] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 01, 2021 11:02:09.83 [4208:12756:0701/110209.083:ERROR:get_updates_processor.cc(255)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 01, 2021 11:02:30.746 [4792:10844:0701/110230.746:ERROR:device_event_log_impl.cc(214)] [11:02:30.746] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
