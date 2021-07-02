@@ -1,6 +1,7 @@
 package com.itwillbs.web;
 
 import java.net.Authenticator.RequestorType;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -151,5 +153,39 @@ public class MemberController {
 		// 페이지 이동(main.jsp)
 		
 		return "redirect:/member/main";
+	}
+	
+	@RequestMapping(value="/delete", method = RequestMethod.GET)
+	public String deleteGet() throws Exception{
+		logger.info("C: deleteGET() 호출");
+		
+		return "/member/deleteForm";
+	}
+	
+	@RequestMapping(value="/delete", method = RequestMethod.POST)
+	public String deletePOST(MemberVO vo, HttpSession session) throws Exception{
+		logger.info("C: deletePOST() 호출");
+		
+		int result = service.deleteMember(vo);
+		
+		if(result != 1) {
+			return "redirect:./delete";
+		}
+		
+		//세션 초기화
+		session.invalidate();
+		
+		//메인페이지 이동
+		return "redirect:./main";
+	}
+	
+	@RequestMapping(value="/list", method = RequestMethod.GET)
+	public String listGet(Model model) throws Exception{
+		logger.info("C: listGET() 호출");
+		
+		List<MemberVO> memberList = service.memberList();
+		model.addAttribute("memberList", memberList);
+		
+		return "/member/list";
 	}
 }

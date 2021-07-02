@@ -12,11 +12,13 @@
 	
 	<main>
 		<h1>안녕하세요 <%if(session.getAttribute("id") != null){%><%=session.getAttribute("id")%><%} else{%>게스트<%}%>님</h1>
-		<h3><a href="deleteForm.jsp">회원 정보 탈퇴(삭제)</a></h3>
+		<h3><a href="delete">회원 정보 탈퇴(삭제)</a></h3>
 		
 		<button onclick="location.href='./info'">회원정보 조회</button>
 		<button onclick="location.href='./update'">회원정보 수정</button>
 		<button onclick="location.href='./logout'">로그아웃</button>
+		
+		<button onclick="location.href='./list'"></button>
 	</main>
 </body>
 </html>

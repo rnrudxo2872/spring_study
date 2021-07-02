@@ -72,13 +72,14 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public void deleteMember(MemberVO vo) {
+	public int deleteMember(MemberVO vo) {
 		System.out.println("DAO : deleteMember(vo) 호출");
 		System.out.println("DAO : 디비연결 -- id = " + vo.getUserid());
 		
-		sqlSession.delete(namespace+".deleteMember", vo);
+		int result = sqlSession.delete(namespace+".deleteMember", vo);
 		System.out.println("삭제 완료");
 		
+		return result;
 	}
 
 	@Override

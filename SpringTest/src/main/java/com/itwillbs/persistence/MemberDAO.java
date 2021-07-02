@@ -21,7 +21,7 @@ public interface MemberDAO {
 	public void updateMember(MemberVO updateVO);
 	
 	//회원정보 삭제 기능
-	public void deleteMember(MemberVO vo);
+	public int deleteMember(MemberVO vo);
 	
 	//회원 로그인 체크 기능
 	public MemberVO LoginMember(String loginID, String loginPW);
