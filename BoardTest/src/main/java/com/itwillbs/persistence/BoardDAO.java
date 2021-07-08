@@ -11,4 +11,13 @@ public interface BoardDAO {
 
 	// 모든 글조회(select)
 	public List<BoardVO> listALL() throws Exception;
+	
+	//글 조회(select)
+	public BoardVO read(Integer bno) throws Exception;
+	
+	//글 수정(update)
+	public void modify(BoardVO vo) throws Exception;
+	
+	//글 삭제(delete)
+	public void remove(Integer bno) throws Exception;
 }

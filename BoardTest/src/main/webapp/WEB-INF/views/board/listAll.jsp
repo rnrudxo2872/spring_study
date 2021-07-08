@@ -19,7 +19,7 @@
 	<c:forEach items="${boardList}" var="boardVO">
 		<tr>
 			<td>${boardVO.bno }</td>
-			<td>${boardVO.title }</td>
+			<td><a href="/board/read?bno=${boardVO.bno }">${boardVO.title }</a></td>
 			<td>${boardVO.writer }</td>
 			<td>
 				<fmt:formatDate value="${boardVO.regdate }" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -33,9 +33,9 @@
 
 <script>
 	var result ='${result}'
-	if(result === 'success'){
+	if(result !== ""){
 		
-		alert("정상 처리 완료!");
+		alert(result);
 	}
 </script>
 

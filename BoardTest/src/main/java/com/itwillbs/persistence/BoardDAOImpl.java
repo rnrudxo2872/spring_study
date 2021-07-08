@@ -30,5 +30,21 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<BoardVO> listALL() throws Exception {
 		return sqlSession.selectList(namespace + ".listALL");
 	}
+
+	@Override
+	public BoardVO read(Integer bno) throws Exception {
+		return sqlSession.selectOne(namespace + ".read", bno);
+	}
+
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		sqlSession.update(namespace + ".modify", vo);
+	}
+
+	@Override
+	public void remove(Integer bno) throws Exception {
+
+		sqlSession.delete(namespace + ".remove", bno);
+	}
 	
 }

@@ -27,4 +27,23 @@ public class boardServiceImpl implements BoardService{
 		
 		return dao.listALL();
 	}
+
+	@Override
+	public BoardVO read(int bno) throws Exception {
+		
+		return dao.read(bno);
+	}
+
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		
+		dao.modify(vo);
+	}
+
+	@Override
+	public void remove(Integer bno) throws Exception {
+
+		dao.remove(bno);
+	}
+	
 }
